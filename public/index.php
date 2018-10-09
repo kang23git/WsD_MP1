@@ -96,4 +96,35 @@ class tableFactory{
 
 }
 
+class csv{
+
+    public static function getRecords($flnm){
+
+        $file = fopen($flnm,"r");
+        $flnms = array();
+        $cnt = 0;
+
+        while(! feof($file))
+        {
+            $record=fgetcsv($file);
+
+            if($cnt==0) {
+
+                $flnms = $record;
+                $rcds[] = recordFactory::create($flnms, $flnms);
+            }
+            else {
+                $rcds[] = recordFactory::create($flnms, $record);
+            }
+            $cnt++;
+        }
+
+        fclose($file);
+
+        return $rcds;
+
+    }
+}
+
+
 
