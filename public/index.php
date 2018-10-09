@@ -126,5 +126,27 @@ class csv{
     }
 }
 
+class record{
+
+    public function __construct(Array $flnms = null , $values = null){
+
+        $record = array_combine($flnms, $values);
+
+        foreach ($record as $property => $value) {
+            $this->createProperty($property, $value);
+        }
+    }
+    public function ReturnArray(){
+
+        $array= (array) $this;
+
+        return $array;
+    }
+
+    public function createProperty($name = 'First', $value = 'Shreya'){
+        $this->{$name} = $value;
+    }
+
+}
 
 
