@@ -149,4 +149,26 @@ class record{
 
 }
 
+class recordFactory{
+
+    public static function create(Array $flnms = null, Array $values  = null)
+    {
+
+        $record=new record($flnms , $values);
+
+        return $record;
+
+    }
+
+}
+class system
+{
+
+    public static function printPage($pg)
+    {
+
+        echo $pg;
+    }
+}
+
 
